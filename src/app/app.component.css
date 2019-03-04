@@ -1,0 +1,52 @@
+
+.container {
+  padding: 2%;
+  background-color: #446c85;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.logo {
+  float: left;
+  color: lightblue;
+  text-decoration: none;
+}
+nav {
+  float: right;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block; /*один из способов разместить элементы в строку*/
+  margin-right: 20px;
+}
+li a {
+  font-family: Corbel;
+  font-size: 17px;
+  text-decoration: none;
+  color: lightblue;
+}
+li a:hover {
+  text-decoration: underline;
+}
+footer {
+  background-color: #446c85;
+  margin-top: 100px;
+  height: 100px;
+}
+footer p {
+  text-align: center;
+  font-family: Calibri;
+  font-size: 25px;
+  padding-top: 35px;
+}
+footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
