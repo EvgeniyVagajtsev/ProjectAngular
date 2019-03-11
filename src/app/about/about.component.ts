@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from "@angular/common/http";
+import {User} from "../user";
 
 @Component({
   selector: 'app-about',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  user: User;
 
   // check_me(event) {
   //   let check1 = document.getElementsByName('check1');
@@ -41,10 +43,11 @@ export class AboutComponent implements OnInit {
   //   }
   //   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
+    this.http.get('user.json').subscribe((data:User) => this.user=data);
   }
 
 }
