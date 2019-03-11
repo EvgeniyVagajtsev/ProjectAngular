@@ -7,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  click1(event) {
+    alert("My name is Jonantan");
+  }
+
+  click2(event) {
+    alert("My name is Malbera");
+  }
+
+  click3(event) {
+    alert("My name is Kish");
+  }
+    constructor() { }
 
   ngOnInit() {
   }

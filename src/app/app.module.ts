@@ -7,17 +7,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from "@angular/router";
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 const routes = [
   {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'about', component: AboutComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
