@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,18 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  click1(event) {
-    alert("My name is Jonantan");
+  click1 = () => {
+      alert('My name is Jonantan');
   }
 
-  click2(event) {
+  click2 = () => {
     alert("My name is Malbera");
   }
 
-  click3(event) {
+  click3 = () => {
     alert("My name is Kish");
   }
-    constructor() { }
+
+  constructor() {
+
+      }
 
   ngOnInit() {
   }
