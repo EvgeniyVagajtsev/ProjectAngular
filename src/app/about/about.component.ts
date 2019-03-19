@@ -11,57 +11,40 @@ export class AboutComponent implements OnInit {
 
   constructor() {
 
-
   }
 
 
   ngOnInit() {
     for (let i = 0; i < 4; i++) {
-      let questionanswer = document.getElementById("question_" + i);
-      console.log(questionanswer.innerHTML = user.test[0].answers[i]);
+      let answers1 = document.getElementById("input_" + i);
+      answers1.innerHTML = user.test[0].answers[i];
+
+      let answers2 = document.getElementById("inputs_" + i);
+      answers2.innerHTML = user.test[1].answers[i];
+
+      let answers3 = document.getElementById("inputx_" + i);
+      answers3.innerHTML = user.test[2].answers[i];
+
+      let answers4 = document.getElementById("inputa_" + i);
+      answers4.innerHTML = user.test[3].answers[i];
+
       for(let k = 0; k < 1; k++){
-        let inputquestion = document.getElementById("input_" + k);
+        let inputquestion = document.getElementById("question_" + k);
         inputquestion.innerHTML = user.test[0].question;
-      }
-    }
-    for (let i = 4; i < 8; i++) {
-      let questionanswer = document.getElementById("question_" + i);
-      console.log(questionanswer.innerHTML = user.test[1].answers[i]);
-      for(let k = 1; k < 2; k++){
-        let inputquestion = document.getElementById("input_" + k);
-        inputquestion.innerHTML = user.test[1].question;
-      }
-    }
-    for (let i = 8; i < 12; i++) {
-      let questionanswer = document.getElementById("question_" + i);
-      console.log(questionanswer.innerHTML = user.test[2].answers[i]);
-      for(let k = 2; k < 3; k++){
-        let inputquestion = document.getElementById("input_" + k);
-        inputquestion.innerHTML = user.test[2].question;
-      }
-    }
-    for (let i = 12; i < 16; i++) {
-      let questionanswer = document.getElementById("question_" + i);
-      console.log(questionanswer.innerHTML = user.test[3].answers[i]);
-      for(let k = 3; k < 4; k++){
-        let inputquestion = document.getElementById("input_" + k);
-        inputquestion.innerHTML = user.test[3].question;
-      }
-    }
-
-
-    // for (let i = 2; i < 3; i++) {
-    //   let inputquestion = document.getElementById("input_" + i);
-    //   inputquestion.innerHTML = user.test[2].question;
-    // }
-    // for (let i = 3; i < 4; i++) {
-    //   let inputquestion = document.getElementById("input_" + i);
-    //   inputquestion.innerHTML = user.test[3].question;
-    // }
-    // for (let i = 0; i < 4; i++) {
-    //   let questionanswer = document.getElementById("question_" + i);
-    //   questionanswer.innerHTML = user.test[0].answers[i];
-    // }
+        for(let k = 1; k < 2; k++){
+          let inputquestion = document.getElementById("question_" + k);
+          inputquestion.innerHTML = user.test[1].question;
+          for(let k = 2; k < 3; k++){
+            let inputquestion = document.getElementById("question_" + k);
+            inputquestion.innerHTML = user.test[2].question;
+            for(let k = 3; k < 4; k++){
+              let inputquestion = document.getElementById("question_" + k);
+              inputquestion.innerHTML = user.test[3].question;
+            }
+          }
+       }
+     }
+   }
   }
 }
 
