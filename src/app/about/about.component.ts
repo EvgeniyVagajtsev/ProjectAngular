@@ -13,6 +13,15 @@ export class AboutComponent implements OnInit {
 
   }
 
+  check_me(event) {
+    let chbox = document.getElementById("check") as HTMLInputElement;
+    if (chbox.checked) {
+      console.log();
+    } else {
+      console.log("Не выбран");
+    }
+  }
+
 
   ngOnInit() {
     for (let i = 0; i < 4; i++) {
@@ -31,18 +40,18 @@ export class AboutComponent implements OnInit {
       for (let k = 0; k < 1; k++) {
         let inputquestion = document.getElementById("question_" + k);
         inputquestion.innerHTML = user.test[0].question;
-        for (let k = 1; k < 2; k++) {
-          let inputquestion = document.getElementById("question_" + k);
-          inputquestion.innerHTML = user.test[1].question;
-          for (let k = 2; k < 3; k++) {
-            let inputquestion = document.getElementById("question_" + k);
-            inputquestion.innerHTML = user.test[2].question;
-            for (let k = 3; k < 4; k++) {
-              let inputquestion = document.getElementById("question_" + k);
-              inputquestion.innerHTML = user.test[3].question;
-            }
-          }
+      for ( k = 1; k < 2; k++) {
+        let inputquestion = document.getElementById("question_" + k);
+         inputquestion.innerHTML = user.test[1].question;
+      for ( k = 2; k < 3; k++) {
+        let inputquestion = document.getElementById("question_" + k);
+          inputquestion.innerHTML = user.test[2].question;
+      for ( k = 3; k < 4; k++) {
+        let inputquestion = document.getElementById("question_" + k);
+          inputquestion.innerHTML = user.test[3].question;
+         }
         }
+       }
       }
     }
   }
