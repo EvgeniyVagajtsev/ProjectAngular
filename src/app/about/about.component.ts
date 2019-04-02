@@ -5,9 +5,9 @@ import * as user from '../user.json';
   selector: 'app-about',
   template: `<p>Тест</p>
               <ul>
-                <li *ngFor="let key of user" >
-                  <p>{{key.question}}</p>
-                  <input type="checkbox">{{key.answers}}
+                <li ng>
+                  <p>{{this.questions}}</p>
+                  <div class="flex"><input type="checkbox">{{this.answer}}</div>
                 </li>
               </ul>
               <input type="button" value="Показать результат"/> 
@@ -17,30 +17,41 @@ import * as user from '../user.json';
 
 export class AboutComponent implements OnInit {
 
-  user = [{
-    "question": "Какая самая большая по населению страна Европы?",
-    "answers": ["Франция", "Великобритания", "Бельгия", "Германия"],
-    "rightAnswer": "Великобритания"
-  }, {
-    "question": "Какая страна находится в центре Европы?",
-    "answers": ["Испания", "Франция", "Беларусь", "Польша"],
-    "rightAnswer": "Беларусь"
-  }, {
-    "question": "Сколько жителей живёт в Беларуси",
-    "answers": ["2млн людей", "1.3млн людей", "1млн людей", "800тыс людей"],
-    "rightAnswer": "1.3млн человек"
-  }, {
-    "question": "Какую страну называют 'Страна зеркальных зданий' ?",
-    "answers": ["Дубаи", "США", "Москва", "Чехия"],
-    "rightAnswer": "CША"
-  }];
-
+  questions: string;
+  answer: string[];
 
   constructor() {
-
-    }
+  }
 
   ngOnInit() {
 
+    const test = [{
+      "question": "Какая самая большая по населению страна Европы?",
+      "answers": ["Франция", "Великобритания", "Бельгия", "Германия"],
+      "rightAnswer": "Великобритания"
+    }, {
+      "question": "Какая страна находится в центре Европы?",
+      "answers": ["Испания", "Франция", "Беларусь", "Польша"],
+      "rightAnswer": "Беларусь"
+    }, {
+      "question": "Сколько жителей живёт в Беларуси",
+      "answers": ["2млн людей", "1.3млн людей", "1млн людей", "800тыс людей"],
+      "rightAnswer": "1.3млн человек"
+    }, {
+      "question": "Какую страну называют 'Страна зеркальных зданий' ?",
+      "answers": ["Дубаи", "США", "Москва", "Чехия"],
+      "rightAnswer": "CША"
+    }];
+
+    for (let key of test) {
+      console.log(key.question);
+      let answer = key.answers.forEach(function (value) {
+        console.log(value);
+      });
+  }
+
+  // this.test.answers.forEach(function (value) {
+  //   console.log(value);
+  // })
   }
 }
