@@ -19,7 +19,7 @@ export class AboutComponent implements OnInit {
 
   questions: string;
   answer: string[];
-
+  rightAnswer: string;
   constructor() {
   }
 
