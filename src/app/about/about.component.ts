@@ -4,54 +4,51 @@ import * as user from '../user.json';
 @Component({
   selector: 'app-about',
   template: `<p>Тест</p>
-              <ul>
-                <li ng>
-                  <p>{{this.questions}}</p>
-                  <div class="flex"><input type="checkbox">{{this.answer}}</div>
-                </li>
-              </ul>
-              <input type="button" value="Показать результат"/> 
-              <input type="reset" value="Сбросить ответы"/>`,
+               <div *ngFor="let item of test">
+                <span>{{item.question}}</span>
+                 <ul *ngFor="let answ of item.answers" >
+                   <div><li><input class="myCheck" type="checkbox" [value]="answ">{{answ}}</li></div>
+               </ul>
+             </div>
+               <div>
+                 <span></span>
+               </div>
+  <input type="button" (click)="tester()" value="Показать результат"/> 
+  <input type="reset" value="Сбросить ответы"/>`,
   styleUrls: ['./about.component.css']
 })
 
-export class AboutComponent implements OnInit {
 
-  questions: string;
-  answer: string[];
-  rightAnswer: string;
+export class AboutComponent implements OnInit {
+  test = user.test;
+
+  tester() {
+    const checkboxes = document.getElementsByClassName("myCheck");
+    const checkboxesChecked = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        checkboxesChecked.push(checkboxes[i].value);
+        console.log(checkboxes[i].value)
+      }
+    }
+    return checkboxesChecked;
+  }
   constructor() {
+
   }
 
   ngOnInit() {
-
-    const test = [{
-      "question": "Какая самая большая по населению страна Европы?",
-      "answers": ["Франция", "Великобритания", "Бельгия", "Германия"],
-      "rightAnswer": "Великобритания"
-    }, {
-      "question": "Какая страна находится в центре Европы?",
-      "answers": ["Испания", "Франция", "Беларусь", "Польша"],
-      "rightAnswer": "Беларусь"
-    }, {
-      "question": "Сколько жителей живёт в Беларуси",
-      "answers": ["2млн людей", "1.3млн людей", "1млн людей", "800тыс людей"],
-      "rightAnswer": "1.3млн человек"
-    }, {
-      "question": "Какую страну называют 'Страна зеркальных зданий' ?",
-      "answers": ["Дубаи", "США", "Москва", "Чехия"],
-      "rightAnswer": "CША"
-    }];
-
-    for (let key of test) {
-      console.log(key.question);
-      let answer = key.answers.forEach(function (value) {
-        console.log(value);
-      });
-  }
-
-  // this.test.answers.forEach(function (value) {
-  //   console.log(value);
-  // })
-  }
+  //   const checkboxes = document.getElementsByClassName("myCheck");
+  //   const checkboxesChecked = [];
+  //   for (let i = 0; i < checkboxes.length; i++) {
+  //     for(let k = 0; k < this.test.length; k++){
+  //       if (checkboxes[i].checked) {
+  //         checkboxesChecked.push(checkboxes[i].value);
+  //         console.log(checkboxes[i].value + " =" + this.test[k].answers[this.test[k].correctAnswer]);
+  //       }
+  //       return checkboxesChecked;
+  //     }
+  //   }
+  // }
+    }
 }
