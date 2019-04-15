@@ -6,13 +6,10 @@ import * as user from '../user.json';
   template: `<p>Тест</p>
                <div *ngFor="let item of test">
                 <span>{{item.question}}</span>
-                 <ul *ngFor="let answ of item.answers" >
+                 <ul  *ngFor="let answ of item.answers" >
                    <div><li><input class="myCheck" type="checkbox" [value]="answ">{{answ}}</li></div>
                </ul>
              </div>
-               <div>
-                 <span></span>
-               </div>
   <input type="button" (click)="tester()" value="Показать результат"/> 
   <input type="reset" value="Сбросить ответы"/>`,
   styleUrls: ['./about.component.css']
@@ -27,12 +24,19 @@ export class AboutComponent implements OnInit {
     const checkboxesChecked = [];
     for (let i = 0; i < checkboxes.length; i++) {
       if (checkboxes[i].checked) {
-        checkboxesChecked.push(checkboxes[i].value);
-        console.log(checkboxes[i].value)
+        for(let k = 0; k < this.test.length; k++) {
+          checkboxesChecked.push(checkboxes[i].value);
+          if (checkboxes[i].value == this.test[k].rightAnswer) {
+            console.log(checkboxes[i].value + "- Верно");
+          } else {
+            console.log("Не верно. Правильный ответ " + this.test[k].answers[this.test[k].correctAnswer]);
+          }
+          return checkboxesChecked;
+        }
       }
     }
-    return checkboxesChecked;
   }
+
   constructor() {
 
   }
